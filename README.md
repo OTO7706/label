@@ -1,120 +1,164 @@
-# 📋 Label Designer
+# 📋 Label Designer - Pro Edition
 
-Una aplicación de escritorio moderna para diseñar y exportar etiquetas a PDF de forma profesional. 
+Una aplicación de escritorio profesional para diseñar y exportar etiquetas a PDF con soporte completo para códigos de barras, QR, y gestión automática de múltiples páginas.
 
-## ✨ Características
+## ✨ Características Principales
 
-- 🎨 **Editor visual intuitivo** con Fabric.js
-- 🖼️ **Agregar imágenes** y posicionarlas libremente
-- ✏️ **Editar texto** con múltiples fuentes y tamaños
-- 🔄 **Rotar, redimensionar y mover** objetos
-- 📊 **Grilla de etiquetas** personalizable (filas y columnas)
-- 📄 **Exportar a PDF** listo para imprimir
-- 💾 **Guardar y cargar proyectos** en JSON
-- 🖨️ **Plantillas predefinidas** (Avery, etc.)
-- 🎯 **Contador de etiquetas** en tiempo real
+### 🎨 Diseño Avanzado
+- **Editor visual intuitivo** con Fabric.js
+- **Agregar elementos**: Texto, Imágenes, Códigos de Barras, QR
+- **Manipulación total**: Rotar, redimensionar, mover objetos
+- **Edición de propiedades**: Fuentes, tamaños, colores
+
+### 📊 Códigos (NEW!)
+- **📊 Códigos de Barras**: CODE128 dinámicos y personalizables
+- **📲 Códigos QR**: Genera QR desde texto o URLs
+
+### 📄 Gestión de Páginas (NEW!)
+- **Tamaño de hoja configurable**: A4, Carta, A5, o personalizado
+- **Márgenes ajustables**: Configura espacios de seguridad
+- **Cantidad de etiquetas**: Define cuántas necesitas (ej: 30)
+- **Generación automática**: Si necesitas 30 y caben 20 por hoja, genera 2 automáticamente
+- **Navegación intuitiva**: Botones anterior/siguiente y selector de páginas
+
+### 📌 Características Base
+- 📊 **Grilla personalizable** - Filas y columnas
+- 💾 **Guardar/cargar proyectos** - En formato JSON
+- 📄 **Exportar a PDF** - Listo para imprimir
+- 🖨️ **Plantillas predefinidas** - Avery, A4 Standard, etc.
+- 🎯 **Contador en tiempo real** - Total de etiquetas y páginas
 
 ## 🛠️ Tecnologías
 
 - **Electron** - Aplicación de escritorio multiplataforma
-- **React** - Interfaz de usuario
+- **React** - Interfaz de usuario moderna
 - **Fabric.js** - Editor de canvas avanzado
 - **Zustand** - Gestión de estado
 - **jsPDF** - Exportación a PDF
-- **HTML5 Canvas** - Renderizado gráfico
+- **JSBarcode** - Generación de códigos de barras
+- **QRCode** - Generación de códigos QR
 
 ## 📦 Instalación
 
-### Requisitos previos
-- Node.js 14+ instalado
+### Requisitos
+- Node.js 14+ 
 - npm o yarn
 
 ### Pasos
 
-1. **Clonar el repositorio**
 ```bash
+# 1. Clonar repositorio
 git clone https://github.com/OTO7706/label.git
 cd label
-```
 
-2. **Instalar dependencias**
-```bash
+# 2. Instalar dependencias
 npm install
-```
 
-3. **Instalar dependencias adicionales**
-```bash
-npm install wait-on concurrently electron-is-dev
+# 3. Instalar librerías adicionales
+npm install wait-on concurrently electron-is-dev jsbarcode qrcode
 ```
 
 ## 🚀 Uso
 
-### Modo desarrollo
+### Modo Desarrollo
 ```bash
 npm start
 ```
 
-Esto abrirá:
-- React dev server en `http://localhost:3000`
-- Aplicación Electron automáticamente
+Abre automáticamente:
+- React dev server: `http://localhost:3000`
+- Aplicación Electron
 
-### Compilar distribución
+### Construir Distribución
 ```bash
 npm run build
 ```
 
-## 📖 Guía de uso
+## 📖 Guía de Uso
 
-### 1. Crear una grilla de etiquetas
-- Haz clic en "⚙️ Configuración"
-- Configura filas, columnas y tamaño
-- Selecciona una plantilla predefinida o personaliza
-- Haz clic en "✨ Crear Grilla"
+### 1️⃣ Configuración Inicial
+1. Haz clic en "⚙️ Configuración"
+2. Selecciona **Tamaño de Hoja** (A4, Carta, A5, personalizado)
+3. Configura **Márgenes** (mm)
+4. Establece **Filas y Columnas** (2×7, 3×10, etc.)
+5. Define **Cantidad de Etiquetas** que necesitas
+6. Haz clic en "✅ Aplicar Configuración"
 
-### 2. Editar etiquetas
-- Selecciona una etiqueta de la grilla en el sidebar izquierdo
-- Usa los botones del canvas para:
-  - **📝 Texto**: Agregar texto editable
-  - **🖼️ Imagen**: Cargar una imagen
-  - **📋 Duplicar**: Duplicar el objeto seleccionado
-  - **🗑️ Eliminar**: Eliminar el objeto seleccionado
+**Ejemplo práctico:**
+- Necesitas 30 etiquetas
+- Hoja A4 con 3 columnas × 10 filas = 30 etiquetas por página
+- Se genera 1 página con todas tus etiquetas
+- Si necesitaras 50, se generarían 2 páginas automáticamente
 
-### 3. Manipular objetos
-- **Mover**: Arrastra los objetos
-- **Redimensionar**: Arrastra las esquinas
-- **Rotar**: Usa los controles de rotación
-- **Editar texto**: Haz doble clic en el texto
+### 2️⃣ Editar Etiquetas
+- Selecciona etiqueta del grid izquierdo
+- Usa botones en la barra superior:
+  - **📝 Texto** - Añade texto editable
+  - **🖼️ Imagen** - Carga una imagen
+  - **📊 Código Barras** - Genera código de barras
+  - **📲 QR** - Crea código QR
+  - **📋 Duplicar** - Clona elemento seleccionado
+  - **🗑️ Eliminar** - Elimina elemento
 
-### 4. Guardar proyecto
-- Haz clic en "💾 Guardar"
-- Se descargará un archivo `.json` con tu proyecto
+### 3️⃣ Manipular Objetos
+- **Mover**: Arrastra con el mouse
+- **Redimensionar**: Arrastra desde las esquinas
+- **Rotar**: Usa controles de rotación
+- **Editar texto**: Doble clic en el texto
 
-### 5. Exportar a PDF
-- Haz clic en "📄 Exportar PDF"
-- Selecciona ubicación y nombre del archivo
-- ¡Listo para imprimir!
+### 4️⃣ Navegar por Páginas
+- Usa **"← Anterior"** y **"Siguiente →"** para cambiar página
+- Haz clic en número de página para ir directo
+- Indicador muestra "Página X de Y"
 
-## 📐 Plantillas predefinidas
+### 5️⃣ Guardar Proyecto
+```
+💾 Guardar → proyecto_etiquetas_[timestamp].json
+```
 
-- **Avery 5160**: 3 columnas, 10 filas, 250x80px
-- **Avery 8160**: 3 columnas, 10 filas, 270x100px
-- **Personalizado**: Tu propia configuración
+### 6️⃣ Exportar a PDF
+```
+📄 Exportar PDF → Selecciona ubicación y archivo
+```
 
-## 📝 Estructura del proyecto
+## 📐 Configuraciones Preestablecidas
+
+| Plantilla | Columnas | Filas | Tamaño | Etiquetas |
+|-----------|----------|-------|--------|-----------|
+| Avery 5160 | 3 | 10 | Carta | 30 |
+| Avery 8160 | 3 | 10 | Carta | 30 |
+| A4 Standard | 2 | 7 | A4 | 14 |
+
+## 📊 Ejemplo de Caso de Uso
+
+**Escenario:** Necesitas 100 etiquetas personalizadas
+
+1. Configuración: 3×10 etiquetas (30 por página)
+2. Especificas: 100 etiquetas totales
+3. **Resultado:** Sistema genera automáticamente 4 páginas
+   - Página 1: 30 etiquetas
+   - Página 2: 30 etiquetas
+   - Página 3: 30 etiquetas
+   - Página 4: 10 etiquetas
+4. Editas el diseño una vez
+5. Se aplica automáticamente a todas las páginas
+6. Exportas todo a PDF de 4 páginas
+
+## 🔧 Estructura del Proyecto
 
 ```
 label/
 ├── public/
-│   ├── electron.js          # Proceso principal de Electron
-│   ├── preload.js           # Scripts de preload
-│   └── index.html           # HTML base
+│   ├── electron.js      # Proceso principal Electron
+│   ├── preload.js       # Scripts preload
+│   └── index.html       # HTML base
 ├── src/
 │   ├── components/
-│   │   ├── CanvasEditor.js  # Editor de canvas principal
-│   │   ├── Toolbar.js       # Barra de herramientas
-│   │   └── Settings.js      # Modal de configuración
+│   │   ├── CanvasEditor.js    # Editor canvas
+│   │   ├── Toolbar.js         # Barra con paginación
+│   │   └── Settings.js        # Configuración avanzada
 │   ├── store/
-│   │   └── store.js         # Zustand store
+│   │   └── store.js           # Zustand store
 │   ├── styles/
 │   │   ├── global.css
 │   │   ├── App.css
@@ -127,17 +171,40 @@ label/
 └── README.md
 ```
 
-## 🐛 Problemas comunes
+## 🎥 Funcionalidades por Hacer
 
-### La aplicación no abre
+- [ ] Undo/Redo completo
+- [ ] Capas y agrupación de objetos
+- [ ] Más formatos de código de barras (UPC, EAN, etc.)
+- [ ] Tema oscuro/claro
+- [ ] Exportación SVG y PNG
+- [ ] Historial de cambios
+- [ ] Colaboración en tiempo real
+- [ ] Plantillas de diseño prediseñadas
+
+## 🐛 Solución de Problemas
+
+### La app no inicia
 ```bash
 rm -rf node_modules package-lock.json
 npm install
+npm install wait-on concurrently electron-is-dev
+npm start
 ```
 
-### El canvas no funciona
-- Asegúrate de tener la última versión de Fabric.js
-- Verifica que tu navegador soporte HTML5 Canvas
+### Canvas no funciona
+- Verifica que Fabric.js esté actualizado
+- Comprueba soporte HTML5 Canvas en tu navegador
+
+### Códigos de barras no aparecen
+```bash
+npm install jsbarcode
+```
+
+### QR no funciona
+```bash
+npm install qrcode
+```
 
 ### PDF no se exporta
 ```bash
@@ -150,14 +217,17 @@ MIT © 2024 OTO7706
 
 ## 🤝 Contribuciones
 
-Las contribuciones son bienvenidas. Por favor:
-
+¡Bienvenidas! Por favor:
 1. Fork el proyecto
-2. Crea una rama para tu feature
-3. Commit tus cambios
-4. Push a la rama
-5. Abre un Pull Request
+2. Crea rama feature (`git checkout -b feature/AmazingFeature`)
+3. Commit cambios (`git commit -m 'Add AmazingFeature'`)
+4. Push rama (`git push origin feature/AmazingFeature`)
+5. Abre Pull Request
+
+## 📧 Soporte
+
+Para bugs o sugerencias: Abre un issue en GitHub
 
 ---
 
-**¡Disfruta diseñando tus etiquetas! 🎨**
+**¡Diseña y imprime etiquetas profesionales con facilidad! 🎨🖨️**
